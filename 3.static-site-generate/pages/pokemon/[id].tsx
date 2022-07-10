@@ -2,31 +2,12 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
-
-interface IProps {
-  params: IParams
-}
-
-interface IParams {
-  id: string
-}
+import styles from '../../styles/Details.module.css'
 
 interface IPokemon {
   id: number
   name: string
-  type: string[]
-  stats: IStat[]
   image: string
-}
-
-interface IStat {
-  name: string
-  value: number
-}
-
-interface DetailIProps {
-  pokemon: IPokemon
 }
 
 export async function getStaticPaths() {
@@ -43,6 +24,14 @@ export async function getStaticPaths() {
   }
 }
 
+interface IParams {
+  id: string
+}
+
+interface IProps {
+  params: IParams
+}
+
 export async function getStaticProps(props: IProps) {
   const { params } = props
   const resp = await fetch(
@@ -53,10 +42,27 @@ export async function getStaticProps(props: IProps) {
     props: {
       pokemon: await resp.json(),
     },
+    // revalidate: 30,
   }
 }
 
-export default function Details(props: DetailIProps) {
+interface IDetailPokemon {
+  name: string
+  image: string
+  type: string[]
+  stats: IStatus[]
+}
+
+interface IStatus {
+  name: string
+  value: number
+}
+
+interface IDetailProps {
+  pokemon: IDetailPokemon
+}
+
+export default function Details(props: IDetailProps) {
   const { pokemon } = props
   return (
     <div>
@@ -68,20 +74,19 @@ export default function Details(props: DetailIProps) {
           <a>Back to Home</a>
         </Link>
       </div>
-      <div>
+      <div className={styles.layout}>
         <div>
-          <Image
+          <img
+            className={styles.picture}
             src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${pokemon.image}`}
             alt={pokemon.name}
-            width={100}
-            height={100}
           />
         </div>
         <div>
-          <div>{pokemon.name}</div>
-          <div>{pokemon.type.join(', ')}</div>
+          <div className={styles.name}>{pokemon.name}</div>
+          <div className={styles.type}>{pokemon.type.join(', ')}</div>
           <table>
-            <thead>
+            <thead className={styles.header}>
               <tr>
                 <th>Name</th>
                 <th>Value</th>
@@ -90,7 +95,7 @@ export default function Details(props: DetailIProps) {
             <tbody>
               {pokemon.stats.map(({ name, value }) => (
                 <tr key={name}>
-                  <td>{name}</td>
+                  <td className={styles.attribute}>{name}</td>
                   <td>{value}</td>
                 </tr>
               ))}

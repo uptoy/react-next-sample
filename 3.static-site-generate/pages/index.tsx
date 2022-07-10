@@ -1,16 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
+import Head from 'next/head'
 import Link from 'next/link'
-import Image from 'next/image'
-
-interface IProps {
-  pokemonList: Pokemon[]
-}
-
-interface Pokemon {
-  id: number
-  name: string
-  image: string
-}
+import styles from '../styles/Home.module.css'
 
 export async function getStaticProps() {
   const resp = await fetch(
@@ -24,21 +16,32 @@ export async function getStaticProps() {
   }
 }
 
+interface IPokemon {
+  id: number
+  name: string
+  image: string
+}
+
+interface IProps {
+  pokemon: IPokemon[]
+}
+
 export default function Home(props: IProps) {
-  const { pokemonList } = props
+  const { pokemon } = props
   return (
-    <div>
+    <div className={styles.container}>
+      <Head>
+        <title>Pokemon List</title>
+      </Head>
       <h2>Pokemon List</h2>
-      <div>
-        {pokemonList.map((pokemon: Pokemon) => (
-          <div key={pokemon.id}>
+      <div className={styles.grid}>
+        {pokemon.map((pokemon: IPokemon) => (
+          <div className={styles.card} key={pokemon.id}>
             <Link href={`/pokemon/${pokemon.id}`}>
               <a>
-                <Image
+                <img
                   src={`https://jherr-pokemon.s3.us-west-1.amazonaws.com/${pokemon.image}`}
                   alt={pokemon.name}
-                  width={100}
-                  height={100}
                 />
                 <h3>{pokemon.name}</h3>
               </a>
