@@ -1,0 +1,58 @@
+{
+  "name": "react-testing-library-examples",
+  "version": "1.0.0",
+  "description": "A repo full of examples of how to use react-testing-library and test your react components",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.10",
+    "axios": "^0.27.2",
+    "history": "^5.3.0",
+    "i18next": "21.8.13",
+    "i18next-browser-languagedetector": "6.1.0",
+    "i18next-xhr-backend": "3.2.2",
+    "intl": "^1.2.5",
+    "mq-polyfill": "^1.1.8",
+    "msw": "^0.43.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.18.0",
+    "react-intl": "^6.0.5",
+    "react-redux": "^8.0.2",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "^5.0.1",
+    "react-transition-group": "^4.4.2",
+    "redux": "^4.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:coverage": "npm run test -- --coverage --watchAll=false"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "last 4 versions",
+      "Firefox ESR",
+      "not ie < 11"
+    ]
+  }
+}
