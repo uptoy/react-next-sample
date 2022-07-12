@@ -8,6 +8,7 @@ describe('<Avatar />', () => {
     alt: 'Avatar'
   }
 
+  //! default
   it('should render the medium Avatar as default', () => {
     const { container } = render(<Avatar {...props} />)
 
@@ -20,6 +21,7 @@ describe('<Avatar />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  //! small
   it('should render the small Avatar', () => {
     const { container } = render(<Avatar size="small" {...props} />)
 
@@ -32,6 +34,7 @@ describe('<Avatar />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  //! medium
   it('should render the medium Avatar', () => {
     const { container } = render(<Avatar size="medium" {...props} />)
 
@@ -42,6 +45,7 @@ describe('<Avatar />', () => {
     )
   })
 
+  //! large
   it('should render the large Avatar', () => {
     const { container } = render(<Avatar size="large" {...props} />)
 
@@ -54,6 +58,7 @@ describe('<Avatar />', () => {
     expect(container.firstChild).toMatchSnapshot()
   })
 
+  //! data-testid="empty-avatar"
   it('should render the empty Avatar', () => {
     const { container } = render(<Avatar />)
 

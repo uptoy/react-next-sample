@@ -1,4 +1,6 @@
 module.exports = {
+  // testEnvironment: ['jsdom', 'node'],
+  // testEnvironment: 'jest-environment-node',
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/node_modules/'],
   collectCoverage: true,
