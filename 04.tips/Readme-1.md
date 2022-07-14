@@ -1,3 +1,19 @@
+///////////////////////////////////////
+
+null check undefined
+//! sample
+// const name: string | undefined = 'name'
+// name === undefined && <div>aaaa</div>
+// return <div>{name}</div>
+//! sample
+// const name: string | undefined = 'name'
+// return <div>{name && <div>name</div>}</div>
+//! sample
+const name: string | undefined = ''
+return <>{name ? 'name' : 'undefined'}</>
+
+///////////////////////////////////////
+
 import { useState } from 'react'
 
 const foo = { name: 'foo', age: 10, completed: false }
@@ -28,7 +44,6 @@ const deleteMe = () => console.trace('bye bye database')
 deleteMe()
 deleteMe()
 
-///////////////////////////////////////
 ///////////////////////////////////////
 //! Bad Code
 const pikachu = { name: 'pika' }
