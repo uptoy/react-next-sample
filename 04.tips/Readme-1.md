@@ -1,4 +1,6 @@
 ///////////////////////////////////////
+const title = data && data[0] ? data[0].title : “”
+
 
 null check undefined
 //! sample
