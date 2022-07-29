@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, memo, useMemo } from 'react'
+import { useState, ChangeEvent, useMemo } from 'react'
 export function Sample3() {
   const list = new Array(20).fill(0).map(() => `Item - ${Math.random()}`)
   const List = ({ list }: any) => {
